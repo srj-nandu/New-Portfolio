@@ -1,72 +1,98 @@
+import { experience, featuredHighlights, projects, technicalSkills } from './projectData.js'
+
 function Hero() {
+  const quickStats = [
+    { value: String(projects.length).padStart(2, '0'), label: 'Selected builds' },
+    { value: String(Object.keys(technicalSkills).length).padStart(2, '0'), label: 'Skill domains' },
+    { value: String(experience.length).padStart(2, '0'), label: 'Experience tracks' },
+  ]
+
+  const serviceAreas = [
+    'Responsive frontend systems',
+    'Backend workflow builds',
+    'Chip-level diagnostics',
+    'Automation support',
+  ]
+
   return (
-    <header className="hero">
+    <header className="hero" id="top">
       <div className="hero-panel">
         <div className="hero-backdrop" aria-hidden="true">
           <div className="hero-orb hero-orb-left" />
           <div className="hero-orb hero-orb-right" />
-          <div className="hero-silhouette" />
+          <div className="hero-grid-glow" />
+          <div className="hero-silhouette">
+            <span>Available For</span>
+            <strong>Portfolio sites</strong>
+            <strong>Frontend builds</strong>
+            <strong>Technical support</strong>
+          </div>
         </div>
 
         <div className="hero-content">
           <div className="hero-copy">
             <p className="eyebrow">MCA Student / Full-Stack Developer / Chip-Level Technician</p>
-            <h1>Building digital products with a hardware-grade mindset.</h1>
+            <h1>Premium portfolio presence for a builder who works in code and circuits.</h1>
             <p className="hero-text">
-              I design and ship full-stack applications, troubleshoot devices at
-              component level, and bring the same precision to code, systems, and
-              user experience.
+              This redesign takes cues from high-converting freelancer portfolios:
+              bold hero messaging, stronger proof sections, and a client-ready
+              presentation adapted to your software and hardware profile.
             </p>
             <div className="hero-actions">
               <a className="button primary" href="#projects">
-                View Projects
+                View Work
               </a>
               <a className="button secondary" href="#contact">
-                Start a Conversation
+                Get a Quote
               </a>
+            </div>
+            <div className="hero-feature-strip" aria-label="Primary skills">
+              {featuredHighlights.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
             </div>
           </div>
 
           <aside className="hero-sidekick">
             <span className="card-label">Selected Focus</span>
-            <h2>Software, repair, and reliable execution.</h2>
+            <h2>Built to look premium and explain your value fast.</h2>
             <p>
-              I work across React interfaces, backend workflows, automation, and
-              chip-level diagnostics for real-world problems.
+              Instead of a plain resume-style layout, this version gives you a
+              stronger landing page for freelance work, internships, and technical
+              opportunities.
             </p>
             <div className="hero-mini-grid">
-              <div>
-                <strong>01</strong>
-                <span>Web Apps</span>
-              </div>
-              <div>
-                <strong>02</strong>
-                <span>Diagnostics</span>
-              </div>
-              <div>
-                <strong>03</strong>
-                <span>Automation</span>
-              </div>
+              {quickStats.map((item) => (
+                <div key={item.label}>
+                  <strong>{item.value}</strong>
+                  <span>{item.label}</span>
+                </div>
+              ))}
             </div>
+            <ul className="hero-checklist">
+              {serviceAreas.map((item) => (
+                <li key={item}>{item}</li>
+              ))}
+            </ul>
           </aside>
         </div>
 
         <div className="hero-stats" aria-label="Key capabilities">
           <div>
             <strong>01</strong>
-            <span>Full-Stack Development</span>
+            <span>Dark editorial visual language</span>
           </div>
           <div>
             <strong>02</strong>
-            <span>Hardware Troubleshooting</span>
+            <span>Service-led section flow</span>
           </div>
           <div>
             <strong>03</strong>
-            <span>Responsive UI Systems</span>
+            <span>Proof cards and project highlights</span>
           </div>
           <div>
             <strong>04</strong>
-            <span>Problem Solving Under Pressure</span>
+            <span>Stronger CTA for enquiries</span>
           </div>
         </div>
       </div>

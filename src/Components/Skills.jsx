@@ -10,11 +10,16 @@ function Skills() {
         </div>
       </div>
 
-      <div className="skills-grid">
+      <div className="skills-grid services-grid">
         {Object.entries(technicalSkills).map(([category, values]) => (
-          <article key={category} className="info-card">
+          <article key={category} className="info-card service-card">
+            <p className="card-label">Service Area</p>
             <h3>{category}</h3>
-            <p>{values.join(' / ')}</p>
+            <div className="chip-cloud">
+              {values.map((value) => (
+                <span key={value}>{value}</span>
+              ))}
+            </div>
           </article>
         ))}
       </div>

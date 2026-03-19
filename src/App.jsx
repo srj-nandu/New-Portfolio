@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react'
 import Header from './Components/Header.jsx'
 import Hero from './Components/Hero.jsx'
 import About from './Components/About.jsx'
@@ -11,10 +12,28 @@ import Footer from './Components/Footer.jsx'
 import Scroll from './Components/Scroll.jsx'
 
 function App() {
+  const [theme, setTheme] = useState(() => {
+    if (typeof window === 'undefined') {
+      return 'light'
+    }
+
+    return window.localStorage.getItem('theme-preference') || 'light'
+  })
+
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme)
+    window.localStorage.setItem('theme-preference', theme)
+  }, [theme])
+
   return (
     <div className="page-shell">
       <Scroll />
-      <Header />
+      <Header
+        theme={theme}
+        onToggleTheme={() => {
+          setTheme((currentTheme) => (currentTheme === 'light' ? 'dark' : 'light'))
+        }}
+      />
       <Hero />
 
       <main className="content-stack">

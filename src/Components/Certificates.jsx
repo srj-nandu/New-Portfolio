@@ -5,15 +5,16 @@ function Certificates() {
     <section id="certificates" className="section">
       <div className="section-heading">
         <div>
-          <p className="section-tag">Certificates</p>
-          <h2>Space reserved for credentials and verified training.</h2>
+          <p className="section-tag">Credentials</p>
+          <h2>Proof, ongoing learning, and placeholders for verified credentials.</h2>
         </div>
       </div>
 
-      <div className="timeline">
+      <div className="timeline credentials-grid">
         {certificates.map((item) => (
-          <article key={item} className="timeline-item">
-            <h3>Update Certificate</h3>
+          <article key={item} className="timeline-item credential-card">
+            <p className="card-label">In Progress</p>
+            <h3>Update Credential Slot</h3>
             <p>{item}</p>
           </article>
         ))}

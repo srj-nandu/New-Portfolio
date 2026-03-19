@@ -28,7 +28,7 @@ function Resume() {
           </article>
         ))}
 
-        <article className="timeline-item">
+        <article className="timeline-item education-card">
           <div className="timeline-header">
             <div>
               <h3>Master of Computer Applications (MCA)</h3>
@@ -36,6 +36,10 @@ function Resume() {
             </div>
             <span>Expected Graduation Year - Update required</span>
           </div>
+          <p className="education-note">
+            Keep this updated with your college name and graduation year so the
+            page reads like a polished client-ready profile instead of a draft CV.
+          </p>
           <p className="resume-soft-skills">{softSkills.join(' / ')}</p>
         </article>
       </div>

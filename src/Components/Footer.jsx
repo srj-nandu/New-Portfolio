@@ -1,8 +1,8 @@
 function Footer() {
   return (
     <footer className="footer">
-      <p>Sooraj S</p>
-      <p>Built with React for software and system-level opportunities.</p>
+      <p>Sooraj S.</p>
+      <p>Designed as a modern one-page portfolio in React.</p>
     </footer>
   )
 }

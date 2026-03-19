@@ -34,6 +34,10 @@ function Contact() {
     const email = formData.get('email')?.toString().trim() ?? ''
     const message = formData.get('message')?.toString().trim() ?? ''
     const fullName = `${firstName} ${lastName}`.trim() || 'Portfolio visitor'
+    const time = new Date().toLocaleString('en-IN', {
+      dateStyle: 'medium',
+      timeStyle: 'short',
+    })
 
     setIsSending(true)
     setStatus({ type: '', message: '' })
@@ -43,12 +47,17 @@ function Contact() {
         serviceId,
         templateId,
         {
+          name: fullName,
           from_name: fullName,
+          sender_name: fullName,
           first_name: firstName,
           last_name: lastName,
+          email,
           reply_to: email,
           from_email: email,
+          sender_email: email,
           message,
+          time,
           to_name: 'Sooraj S',
           subject: `Portfolio enquiry from ${fullName}`,
         },
@@ -80,11 +89,27 @@ function Contact() {
     <section id="contact" className="section contact-section">
       <div className="contact-intro">
         <p className="section-tag">Response Section</p>
-        <h2>Make it easy for people to connect with you.</h2>
+        <h2>Tell me what you want to build, repair, or improve.</h2>
         <p className="contact-lead">
-          For project work, internships, technical support, or collaborations, people
-          can message you here or reach out directly through your primary profiles.
+          This area now works like the pricing or enquiry block in a premium
+          portfolio. It gives visitors a clear next step for freelance work,
+          internships, technical support, or collaborations.
         </p>
+
+        <div className="contact-note-board">
+          <article className="contact-note-card">
+            <span>Best fit</span>
+            <strong>Portfolio sites, web apps, and technical troubleshooting</strong>
+          </article>
+          <article className="contact-note-card">
+            <span>Response</span>
+            <strong>Share your scope and I will reply with the best route</strong>
+          </article>
+          <article className="contact-note-card">
+            <span>Pricing</span>
+            <strong>Final cost depends on requirements and delivery scope</strong>
+          </article>
+        </div>
 
         <div className="contact-links-grid">
           <a className="contact-link-card" href="mailto:srj.nandu@gmail.com">
